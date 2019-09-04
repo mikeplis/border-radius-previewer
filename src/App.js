@@ -25,6 +25,8 @@ function App() {
     const [bottomRight, setBottomRight] = React.useState('0');
     const [bottomLeft, setBottomLeft] = React.useState('0');
 
+    const borderRadiusRule = `border-radius: ${topLeft} ${topRight} ${bottomRight} ${bottomLeft}`;
+
     return (
         <div style={{ margin: '1rem' }}>
             <h1>Border Radius Previewer</h1>
@@ -64,6 +66,13 @@ function App() {
                     <input value={bottomRight} onChange={e => setBottomRight(e.target.value)} />
                 </label>
             </div>
+            <button
+                onClick={() => {
+                    navigator.clipboard.writeText(borderRadiusRule);
+                }}
+            >
+                Copy to clipboard
+            </button>
         </div>
     );
 }
